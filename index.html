@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>h2x</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <img src="images/topleft.gif" class="bg-gif top-left" alt="">
+  <img src="images/bottomright.gif" class="bg-gif bottom-right" alt="">
+  
+  <div class="container">
+    <div class="heading" id="heading">
+      <h1> 🎂 Happy birthday! 🎂</h1>
+      <p>SALUTATIONS FINE SHYT :3 and happy birthday again <33 I wanted to do something special and different for
+        you, so I made this lil trivia with a small prize at the end ^_^ Answer each question to unlock the next
+        level. There is a hint that's provided for you but if you need more assistance, you can hit the "call vee"
+        button and she shall appear to help you.</p>
+      <button id="beginPuzzle" onclick="beginPuzzle()" class="hint-button">Begin Puzzle</button>
+      <button id="callVeeBtn" onclick="callVee()" class="hint-button">Call vee</button>
+      <div id="callVeePopup" class="hidden-popup">
+        <img
+          src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnJ2ZHY2aGhwbjVheWJyYjk4OW95YWF5Nml1eGc0ejRoN3Bpa3hzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nAY0Mn4Grg4BhuwNGH/giphy.gif"
+          alt="Call vee" />
+      </div>
+    </div>
+    <div id="puzzleContainer">
+
+      <!-- Question 1 -->
+      <div class="question" id="level1" style="display:none;">
+        <h2>Numéro 1: Can*da 🇨🇦</h2>
+        <p>Which NBA team won their first championship in 2019?</p>
+        <!-- Hint -->
+        <button onclick="toggleHint(1)" class="hint-button">Show Hint</button>
+        <p id="hint1" class="hint hidden">it's the team from Toronto with a 🦖 mascot</p>
+        <!-- Type answer box -->
+        <input type="text" id="answer1" placeholder="Type your answer here" />
+        <!-- Check answer box -->
+        <button onclick="checkAnswer(1)">Submit</button>
+        <p id="feedback1" class="feedback"></p>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question" id="level2" style="display:none;">
+        <h2>Numéro 2: The V stands for Valorant 🎮</h2>
+        <p>What is vee's favorite agent to play on most maps?</p>
+        <button onclick="toggleHint(2)" class="hint-button">Show Hint</button>
+        <p id="hint2" class="hint hidden">🦋 🦋 🦋</p>
+        <input type="text" id="answer2" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(2)">Submit</button>
+        <p id="feedback2" class="feedback"></p>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question" id="level3" style="display:none;">
+        <h2>Numéro 3: LeBron 🏀 </h2>
+        <p>In 2013, which team did LeBron James captain to an NBA Championship?</p>
+        <button onclick="toggleHint(3)" class="hint-button">Show Hint</button>
+        <p id="hint3" class="hint hidden">vee is from this city :p</p>
+        <input type="text" id="answer3" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(3)">Submit</button>
+        <p id="feedback3" class="feedback"></p>
+      </div>
+
+      <!-- Sudoku -->
+      <!-- Question 4 -->
+      <div class="question" id="level4" style="display:none;">
+        <h2>Numéro 4: Mini Sudoku 🎲</h2>
+        <p>Fill in the missing numbers 1–4 so every row, column, and 2x2 box are completed</p>
+        <table id="sudokubox">
+          <tr>
+            <td><input type="number" min="1" max="4" disabled value="1" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" disabled value="4" /></td>
+          </tr>
+          <tr>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" disabled value="4" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" disabled value="2" /></td>
+          </tr>
+          <tr>
+            <td><input type="number" min="1" max="4" disabled value="4" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+          </tr>
+          <tr>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" disabled value="1" /></td>
+            <td><input type="number" min="1" max="4" /></td>
+            <td><input type="number" min="1" max="4" disabled value="3" /></td>
+          </tr>
+        </table>
+        <button onclick="checkSudoku()">Submit</button>
+        <p id="feedback4" class="feedback"></p>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="question" id="level5" style="display:none;">
+        <h2>Numéro 5: MATCH MVP ⭐</h2>
+        <p>Who was the first player to win the NBA MVP award unanimously?</p>
+        <button onclick="toggleHint(5)" class="hint-button">Show Hint</button>
+        <p id="hint5" class="hint hidden">i like to eat this food :bigback:</p>
+        <input type="text" id="answer5" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(5)">Submit</button>
+        <p id="feedback5" class="feedback"></p>
+      </div>
+
+      <!-- Question 6 -->
+      <div class="question" id="level6" style="display:none;">
+        <h2>Numéro 6: vee lor ant 👾</h2>
+        <p>What is the viper voiceline that vee likes that doesn't exist in the game anymore?</p>
+        <button onclick="toggleHint(6)" class="hint-button">Show Hint</button>
+        <p id="hint6" class="hint hidden">c***</p>
+        <input type="text" id="answer6" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(6)">Submit</button>
+        <p id="feedback6" class="feedback"></p>
+      </div>
+
+      <!-- Question 7 -->
+      <div class="question" id="level7" style="display:none;">
+        <h2>Numéro 7: Basketball Dorks 🖥️</h2>
+        <p>What was the last basketball game you and vee watched together?</p>
+        <button onclick="toggleHint(7)" class="hint-button">Show Hint</button>
+        <p id="hint7" class="hint hidden">OKC vs ?</p>
+        <input type="text" id="answer7" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(7)">Submit</button>
+        <p id="feedback7" class="feedback"></p>
+      </div>
+
+      <!-- Scramble (3 Levels) -->
+      <!-- Question 8 -->
+      <div class="question" id="level8" style="display:none;">
+        <h2>Numéro 8: Word Scramble 🧩</h2>
+        <p>Unscramble the word:</p>
+        <button onclick="startScramble()" class="hint-button">Start Scramble</button>
+        <h3 id="scrambledWord" style="letter-spacing: 0.2em; font-weight; bold;"></h3>
+        <input type="text" id="scrambleAnswer" placeholder="Type your guess here" />
+        <button onclick="checkScramble()">Submit</button>
+        <p id="scrambleFeedback" class="feedback"></p>
+      </div>
+
+      <!-- Question 9 -->
+      <div class="question" id="level9" style="display:none;">
+        <h2>Numéro 9: Je, tu, il, elle 🍟</h2>
+        <p>Translate the following "J’aime beaucoup jouer à Valorant avec vee."</p>
+        <button onclick="toggleHint(9)" class="hint-button">Show Hint</button>
+        <p id="hint9" class="hint hidden">What do you really like to do in your free time?</p>
+        <input type="text" id="answer9" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(9)">Submit</button>
+        <p id="feedback9" class="feedback"></p>
+      </div>
+
+      <!-- Question 10 -->
+      <div class="question" id="level10" style="display:none;">
+        <h2>Numéro 10: 🐈🐈‍⬛</h2>
+        <p>Who is vee's favorite reyna main?</p>
+        <button onclick="toggleHint(10)" class="hint-button">Show Hint</button>
+        <p id="hint10" class="hint hidden">do you really need a hint for this...</p>
+        <input type="text" id="answer10" placeholder="Type your answer here" />
+        <button onclick="checkAnswer(10)">Submit</button>
+        <p id="feedback10" class="feedback"></p>
+      </div>
+
+      <!-- Final Message -->
+      <div id="finalMessage" class="hidden" style="display:none;">
+        <h2>YAY 🎉 Congratulations! You've completed the puzzle! 🏆</h2>
+        <p>Good job on correctly answering all of the questions :3 I hope you enjoyed playing this as much as I enjoyed
+          making it for you. Here is your prize: 🌷</p>
+        <p>- vee 🫶🏻</p>
+        <button id="restartBtn" onclick="restartPuzzle()" class="hint-button">Restart Puzzle</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
